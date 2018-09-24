@@ -1,0 +1,177 @@
+<html>
+
+<head>
+    <title>Knockout Js</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+<p>this is html file intended to learn knockout js</p>
+
+<!--<p>The name is <span data-bind="text: personName()"></span></p>-->
+<!--<p>The age is <span data-bind="text: personAge()"></span></p>-->
+
+<p>The name is <span data-bind="text: fullName()"></span></p>
+<div>First name: <span data-bind="text: firstName"></span></div>
+<div>Last name: <span data-bind="text: lastName"></span></div>
+<div class="heading">Hello, <input data-bind="textInput: fullName"/></div>
+
+
+<div class="heading">
+    <input type="checkbox" data-bind="checked: selectedAllProduce" title="Select all/none"/> Produce
+</div>
+<div data-bind="foreach: produce">
+    <label>
+        <input type="checkbox" data-bind="checkedValue: $data, checked: $parent.selectedProduce"/>
+        <span data-bind="text: $data"></span>
+    </label>
+</div>
+
+<div>Enter bid price: <input data-bind="value: formattedPrice"/></div>
+<div>(Raw value: <span data-bind="text: price"></span>)</div>
+
+
+<div>Enter a numeric value: <input data-bind="textInput: attemptedValue"/></div>
+<div class="error" data-bind="visible: !lastInputWasValid()">That's not a number!</div>
+<div>(Accepted value: <span data-bind="text: acceptedNumericValue"></span>)</div>
+
+<script>
+
+    let myViewModel = {
+        personName: ko.observable('Bob'),
+        personAge: ko.observable(123)
+    };
+
+
+    var subscriptionBefore = myViewModel.personName.subscribe(function (oldValue) {
+        alert("The person's previous name is " + oldValue);
+    }, null, "beforeChange");
+
+    var subscription = myViewModel.personName.subscribe(function (newValue) {
+        alert("The person's new name is " + newValue);
+        ``
+    });
+
+    //subscription.dispose(); //to remove the subscription
+
+    //myViewModel.personName.extend({ notify: 'always' }); force for subscription on changes such as write
+
+    // Ensure it notifies about changes no more than once per 50-millisecond period
+    //myViewModel.personName.extend({ rateLimit: 50 });
+
+    let myObservableArray = ko.observableArray();    // Initially an empty array
+    myObservableArray.push('Some value');            // Adds the value and notifies observers
+
+    let anotherObservableArray = ko.observableArray([
+        {name: "Bungle", type: "Bear"},
+        {name: "George", type: "Hippo"},
+        {name: "Zippy", type: "Unknown"}
+    ]);
+
+    // alert('The length of the array is ' + myObservableArray().length);
+    // alert('The first element is ' + myObservableArray()[0]);
+    // alert('The length of the array is ' + anotherObservableArray().length);
+
+
+    function AppViewModel() {
+        let self = this;
+
+        self.firstName = ko.observable('Bob');
+        self.lastName = ko.observable('Smith');
+        // self.fullName = ko.computed(function() {
+        //     return self.firstName() + " " + self.lastName();
+        // });
+
+        this.fullName = ko.pureComputed(function() {
+            return this.firstName() + " " + this.lastName();
+        }, this);
+
+    }
+
+
+    function MyViewModel() {
+        this.firstName = ko.observable('Planet');
+        this.lastName = ko.observable('Earth');
+
+        this.fullName = ko.computed({
+            read: function () {
+                return this.firstName() + " " + this.lastName();
+            },
+            write: function (value) {
+                var lastSpacePos = value.lastIndexOf(" ");
+                if (lastSpacePos > 0) { // Ignore values with no space character
+                    this.firstName(value.substring(0, lastSpacePos)); // Update "firstName"
+                    this.lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
+                }
+            },
+            owner: this
+        });
+
+
+        this.produce = [ 'Apple', 'Banana', 'Celery', 'Corn', 'Orange', 'Spinach' ];
+        this.selectedProduce = ko.observableArray([ 'Corn', 'Orange' ]);
+        this.selectedAllProduce = ko.pureComputed({
+            read: function () {
+                // Comparing length is quick and is accurate if only items from the
+                // main array are added to the selected array.
+                return this.selectedProduce().length === this.produce.length;
+            },
+            write: function (value) {
+                this.selectedProduce(value ? this.produce.slice(0) : []);
+            },
+            owner: this
+        });
+
+        this.price = ko.observable(25.99);
+
+        this.formattedPrice = ko.pureComputed({
+            read: function () {
+                return '$' + this.price().toFixed(2);
+            },
+            write: function (value) {
+                // Strip out unwanted characters, parse as float, then write the
+                // raw data back to the underlying "price" observable
+                value = parseFloat(value.replace(/[^\.\d]/g, ""));
+                this.price(isNaN(value) ? 0 : value); // Write to underlying storage
+            },
+            owner: this
+        });
+
+
+        this.acceptedNumericValue = ko.observable(123);
+        this.lastInputWasValid = ko.observable(true);
+
+        this.attemptedValue = ko.pureComputed({
+            read: this.acceptedNumericValue,
+            write: function (value) {
+                if (isNaN(value))
+                    this.lastInputWasValid(false);
+                else {
+                    this.lastInputWasValid(true);
+                    this.acceptedNumericValue(value); // Write to underlying storage
+                }
+            },
+            owner: this
+        });
+
+        
+    }
+
+    ko.applyBindings(new MyViewModel());
+
+    // ko.applyBindings(AppViewModel)
+    // ko.applyBindings(myViewModel);
+
+</script>
+
+
+</body>
+
+
+</html>
