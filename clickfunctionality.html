@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Clcik fucntionality</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div>
+    You've clicked <span data-bind="text: numberOfClicks"></span> times
+    <button data-bind="click: incrementClickCounter">Click me</button>
+</div>
+<script>
+    let appModule = {
+
+        numberOfClicks: ko.observable(0),
+        incrementClickCounter : function (){
+            console.log(this.numberOfClicks())
+            this.numberOfClicks(this.numberOfClicks() + 1)
+        }
+
+    }
+
+
+    ko.applyBindings(appModule)
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<title>Style binding</title>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<body>
+<div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'blue' }">
+    Profit Information
+</div>`
+
+<script>
+    var viewModel = {
+        currentProfit: ko.observable(150000) // Positive value, so initially black
+    };
+    viewModel.currentProfit(-50);
+
+    ko.applyBindings(viewModel)
+</script>
+
+
+</body>
+</html>
