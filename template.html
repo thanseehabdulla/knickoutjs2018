@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Template binding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+h2>Participants</h2>
+Here are the participants:
+<div data-bind="template: { name: 'person-template', data: buyer }"></div>
+<div data-bind="template: { name: 'person-template', data: seller }"></div>
+
+<script type="text/html" id="person-template">
+    <h3 data-bind="text: name"></h3>
+    <p>Credits: <span data-bind="text: credits"></span></p>
+</script>
+<script>
+
+
+    function MyViewModel() {
+        this.buyer = {name: 'Franklin', credits: 250};
+        this.seller = {name: 'Mario', credits: 5800};
+    }
+
+    ko.applyBindings(new MyViewModel());
+
+
+</script>
+
+</body>
+
+
+</html>

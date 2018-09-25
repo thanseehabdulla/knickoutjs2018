@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Option selected</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+<p>
+    Your country:
+    <select data-bind="options: availableCountries,
+                       optionsText: 'countryName',
+                       value: selectedCountry,
+                       optionsCaption: 'Choose...'"></select>
+</p>
+
+<div data-bind="visible: selectedCountry"> <!-- Appears when you select something -->
+    You have chosen a country with population
+    <span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'"></span>.
+</div>
+
+<script>
+
+    var Country = function(name, population) {
+        this.countryName = name;
+        this.countryPopulation = population;
+    };
+
+
+    var viewModel = {
+        availableCountries : ko.observableArray([
+            new Country("UK", 65000000),
+            new Country("USA", 320000000),
+            new Country("Sweden", 29000000)
+        ]),
+        selectedCountry : ko.observable() // Nothing selected by default
+    };
+
+    ko.applyBindings(viewModel)
+</script>
+
+</body>
+
+
+</html>
