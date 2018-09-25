@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Event binding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<div>
+    <div data-bind="event: { mouseover: enableDetails, mouseout: disableDetails }">
+        Mouse over me
+    </div>
+    <div data-bind="visible: detailsEnabled">
+        Details
+    </div>
+</div>
+
+<script>
+
+    let viewModel = {
+        detailsEnabled: ko.observable(false),
+        enableDetails: function() {
+            this.detailsEnabled(true);
+        },
+        disableDetails: function() {
+            this.detailsEnabled(false);
+        }
+    };
+    ko.applyBindings(viewModel);
+
+
+
+</script>
+
+</body>
+
+</html>

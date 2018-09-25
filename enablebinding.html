@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Enable Binding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<p>
+    <input type='checkbox' data-bind="checked: hasCellphone" />
+    I have a cellphone
+</p>
+<p>
+    Your cellphone number:
+    <input type='text' data-bind="value: cellphoneNumber, enable: hasCellphone" />
+</p>
+
+<script>
+
+    let viewModel = {
+        hasCellphone : ko.observable(false),
+        cellphoneNumber: ""
+    };
+
+    ko.applyBindings(viewModel)
+
+</script>
+
+
+</body>
+
+</html>

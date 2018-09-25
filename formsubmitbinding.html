@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Form submit binding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<form data-bind="submit: doSomething">
+    ... form contents go here ...
+    <button type="submit">Submit</button>
+</form>
+
+
+<script>
+    var viewModel = {
+        doSomething : function(formElement) {
+            // ... now do something
+            alert("submit button is clicked")
+        }
+    };
+
+    ko.applyBindings(viewModel)
+</script>
+
+</body>
+
+
+</html>
