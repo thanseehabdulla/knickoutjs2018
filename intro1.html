@@ -88,7 +88,7 @@
         //     return self.firstName() + " " + self.lastName();
         // });
 
-        this.fullName = ko.pureComputed(function() {
+        this.fullName = ko.pureComputed(function () {
             return this.firstName() + " " + this.lastName();
         }, this);
 
@@ -114,8 +114,8 @@
         });
 
 
-        this.produce = [ 'Apple', 'Banana', 'Celery', 'Corn', 'Orange', 'Spinach' ];
-        this.selectedProduce = ko.observableArray([ 'Corn', 'Orange' ]);
+        this.produce = ['Apple', 'Banana', 'Celery', 'Corn', 'Orange', 'Spinach'];
+        this.selectedProduce = ko.observableArray(['Corn', 'Orange']);
         this.selectedAllProduce = ko.pureComputed({
             read: function () {
                 // Comparing length is quick and is accurate if only items from the
@@ -160,7 +160,7 @@
             owner: this
         });
 
-        
+
     }
 
     ko.applyBindings(new MyViewModel());

@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Observable Arrays</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<ul data-bind="foreach:observableArray">
+    <li data-bind="text:name"></li>
+</ul>
+
+<script>
+
+    let observableArray = ko.observableArray();
+    observableArray.push({name : 'thanseeh'});
+    observableArray.push({name : 'thanseeh2'});
+    observableArray.push({name : 'thanseeh3'});
+    observableArray.push({name : 'thanseeh4'});
+
+
+    ko.applyBindings(observableArray)
+
+
+
+
+</script>
+
+
+</body>
+
+
+</html>

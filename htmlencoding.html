@@ -1,0 +1,29 @@
+<html>
+<head><title>Html encoding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+<p data-bind="html:header"></p>
+<p data-bind="html:footer"></p>
+
+<script>
+
+    let htmlEncode = {
+
+        header : "<span>This is a dynamically generated header</span>",
+        footer : "<span>This is a dyanmcially generated footer</span>"
+    }
+
+    ko.applyBindings(htmlEncode)
+
+
+</script>
+</body>
+</html>

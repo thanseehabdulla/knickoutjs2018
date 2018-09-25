@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Basic</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+
+<p>This is the basic webpage shows basic binding </p>
+<p> my name is <span data-bind="text:name()"></span></p>
+
+<script>
+
+    let AppModule = {
+        name: ko.observable("thanseeh")
+    };
+
+    ko.applyBindings(AppModule)
+
+</script>
+</body>
+</html>

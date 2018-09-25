@@ -1,0 +1,43 @@
+<html>
+
+<title>Multiple data binding</title>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<body>
+<div>First name: <span data-bind="text: firstName"></span></div>
+<div>Last name: <span data-bind="text: lastName"></span></div>
+<div class="heading">Hello, <input data-bind="textInput: fullName"/></div>
+<script>
+    function MyViewModel() {
+        this.firstName = ko.observable('Planet');
+        this.lastName = ko.observable('Earth');
+
+        this.fullName = ko.pureComputed({
+            read: function () {
+                return this.firstName() + " " + this.lastName();
+            },
+            write: function (value) {
+                var lastSpacePos = value.lastIndexOf(" ");
+                if (lastSpacePos > 0) { // Ignore values with no space character
+                    // this.firstName(value.substring(0, lastSpacePos)); // Update "firstName"
+                    // this.lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
+
+                    this.firstName(value.split(" ")[0])
+                    // console.log(this.firstName)
+                    this.lastName(value.split(" ")[1])
+                    // console.log(this.lastName)
+                }
+            },
+            owner: this
+        });
+    }
+
+    ko.applyBindings(new MyViewModel());
+</script>
+</body>
+
+
+</html>

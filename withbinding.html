@@ -1,0 +1,33 @@
+<html>
+
+<title>with switch binding</title>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<body>
+
+<h1 data-bind="text: city"> </h1>
+<p data-bind="with: coords">
+    Latitude: <span data-bind="text: latitude"> </span>,
+    Longitude: <span data-bind="text: longitude"> </span>
+</p>
+
+<script>
+
+    let nestedJSONObject = {
+        city: "London",
+        coords: {
+            latitude:  51.5001524,
+            longitude: -0.1262362
+        }
+    }
+
+    ko.applyBindings(nestedJSONObject);
+
+</script>
+
+
+</body>
+</html>

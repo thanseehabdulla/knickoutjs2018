@@ -1,0 +1,33 @@
+<html>
+
+<head><title>CSS Binding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div data-bind="css: profitStatus">
+    Profit Information
+</div>
+
+<script>
+
+    let viewModel = {
+        currentProfit: ko.observable(150000)
+    };
+
+    // Evalutes to a positive value, so initially we apply the "profitPositive" class
+    viewModel.profitStatus = ko.pureComputed(function () {
+        return this.currentProfit() < 0 ? "profitWarning" : "profitPositive";
+    }, viewModel);
+
+    // Causes the "profitPositive" class to be removed and "profitWarning" class to be added
+    viewModel.currentProfit(-50);
+
+    ko.applyBindings(viewModel)
+
+</script>
+</body>
+</html>
