@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Component Binding</title>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<h4>First instance, without parameters</h4>
+<div data-bind='component: "message-editor"'></div>
+
+<h4>Second instance, passing parameters</h4>
+<div data-bind='component: {
+    name: "message-editor2",
+    params: { initialText: "Hello, world!" }
+}'></div>
+<script>
+    ko.components.register('message-editor', {
+        viewModel: function(params) {
+            this.text = ko.observable(params && params.initialText || '');
+        },
+        template: 'Message: <input data-bind="value: text" /> '
+            + '(length: <span data-bind="text: text().length"></span>)'
+    });
+
+    ko.components.register('message-editor2', {
+        viewModel: function(params) {
+            this.text = ko.observable(params && params.initialText || '');
+        },
+        template: 'Message: <input data-bind="value: text" /> '
+            + '(length: <span data-bind="text: text().length"></span>)'
+    });
+
+    ko.applyBindings();
+</script>
+
+</body>
+</html>

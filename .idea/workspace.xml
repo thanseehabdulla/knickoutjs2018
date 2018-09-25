@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9621854-7813-4ba8-9558-ddb2e58738af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/option.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/valuebinding.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/componentbinding.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,37 +20,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="21" />
+          <entry key="html" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="21" />
+          <entry key="HTML" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="3058" />
+          <entry key="html" value="3119" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="3058" />
+          <entry key="HTML" value="3119" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htmlencoding.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cssbidning.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,14 +81,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/option.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="119">
+              <caret line="7" column="45" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="7" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/template.html">
+        <entry file="file://$PROJECT_DIR$/componentbinding.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
@@ -161,6 +158,7 @@
         <option value="$PROJECT_DIR$/valuebinding.html" />
         <option value="$PROJECT_DIR$/option.html" />
         <option value="$PROJECT_DIR$/template.html" />
+        <option value="$PROJECT_DIR$/componentbinding.html" />
       </list>
     </option>
   </component>
@@ -223,12 +221,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537852475427</updated>
-      <workItem from="1537852476714" duration="12458000" />
+      <workItem from="1537852476714" duration="12828000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12458000" />
+    <option name="totallyTimeSpent" value="12828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -379,12 +377,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/option.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="119">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="7" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componentbinding.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
